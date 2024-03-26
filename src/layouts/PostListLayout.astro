@@ -1,0 +1,32 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import BlogPost from '@/components/BlogPost.astro';
+import Profile from "@/components/Profile.astro";
+import Tags from '@/components/Tags.astro';
+
+const { pageTitle, posts, tag } = Astro.props;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Profile />
+    <div class="tag">
+        <Tags selectTag={tag} />
+    </div>
+    <ul class="list">
+        {posts.map((post) => <BlogPost url={post.url} {...post.frontmatter}/>)}
+    </ul>
+</BaseLayout>
+
+<style>
+    .tag {
+        padding-top: 1rem;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 1rem;
+      gap: 1rem;
+      list-style-type: none;
+    }
+</style>

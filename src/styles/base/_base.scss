@@ -1,0 +1,11 @@
+html {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-foreground) var(--color-background);
+}
+
+body {
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    font-family: Pretendard, sans-serif;
+}

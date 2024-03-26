@@ -7,16 +7,29 @@
     </svg>
 </button>
 
-<style>
+<style lang="scss">
     #themeToggle {
         border: 0;
         background: none;
     }
-    .sun { fill: black; }
-    .moon { fill: transparent; }
 
-    :global(.dark) .sun { fill: transparent; }
-    :global(.dark) .moon { fill: white; }
+    .sun { 
+      fill: black;
+    }
+    
+    .moon { 
+      fill: transparent; 
+    }
+
+    :global(.dark) {
+      .sun { 
+        fill: transparent; 
+      }
+
+      .moon { 
+        fill: white;
+      }
+    } 
 </style>
 
 <script is:inline>

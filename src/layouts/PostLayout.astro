@@ -1,11 +1,12 @@
 ---
-import Giscus from '../components/Giscus.astro';
+import Giscus from '@/components/Giscus.astro';
 import BaseLayout from './BaseLayout.astro';
 
-const { frontmatter } = Astro.props;
+const { pageTitle, frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
+    <h1>{frontmatter.title}</h1>
     <p>{frontmatter.pubDate.slice(0,10)}</p>
     <p><em>{frontmatter.description}</em></p>
     <p>Written by: {frontmatter.author}</p>
@@ -15,12 +16,14 @@ const { frontmatter } = Astro.props;
             <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
         ))}
     </div>
-    <slot />
+    <div>
+        <slot />
+    </div>
     <Giscus />
 </BaseLayout>
 
 <style>
-    a {
+    /* a {
         color: #00539F;
     }
   
@@ -36,5 +39,5 @@ const { frontmatter } = Astro.props;
         padding: .5em 1em;
         font-size: 1.15em;
         background-color: #F8FCFD;
-    }
+    } */
 </style>
