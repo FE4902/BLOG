@@ -1,4 +1,5 @@
 ---
+import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
 import '@/styles/global.scss';
 
@@ -11,15 +12,16 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>dev log : {pageTitle}</title>
+    <title>Devlog : {pageTitle}</title>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
   </head>
   <body>
     <div class="wrap">
       <Header />
-      <main class="main">
+      <main>
         <slot />
       </main>
+      <Footer />
     </div>
   </body>
 </html>
@@ -29,9 +31,5 @@ const { pageTitle } = Astro.props;
     max-width: var(--width-container);
     width: calc(100% - 2rem);
     margin: 0 auto;
-  }
-
-  .main {
-    padding: 0 0 128px;
   }
 </style>

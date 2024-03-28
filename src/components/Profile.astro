@@ -8,7 +8,10 @@
     <div class="profile__body">
         <div class="profile__name">Juhong</div>
         <div class="profile__role">Frontend Developer(진)</div>
-        <!-- <div class="profile__comment">Web Pubilsher, UI Developer</div> -->
+        <div class="profile__comment">
+            <!-- 서두르지 말되, 멈추지 말라 <br /> -->
+            <a class="link" href="https://fe4902.tistory.com/">티스토리</a>에서 이사했습니다.
+        </div>
     </div>
 </div>
 
@@ -18,21 +21,28 @@
         align-items: center;
         gap: 1rem;
         padding: 1rem;
-        background-color: var(--color-black-shadow);
-        border-radius: 0.5rem;
+        background-color: var(--color-shadow);
+        border-radius: var(--radius-medium);
     }
 
     .profile__thumb {
         display: block;
         width: 6rem;
         height: 6rem;
-        border-radius: 50%;
+        border-radius: var(--radius-circle);
         background-color: var(--color-primary);
     }
 
     .profile__name {
         font-size: 1.25rem;
         font-weight: var(--weight-bold);
-        padding-bottom: 0.25rem;
+    }
+
+    .profile__role {
+        padding-top: 0.25rem;
+    }
+
+    .profile__comment {
+        padding-top: 0.25rem;
     }
 </style>

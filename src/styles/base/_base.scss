@@ -9,3 +9,30 @@ body {
     background-color: var(--color-background);
     font-family: Pretendard, sans-serif;
 }
+
+.link {
+    text-decoration: underline;
+
+    &:hover {
+        color: var(--color-primary);
+    }
+}
+
+article {
+    a {
+        color: var(--color-foreground);
+        text-decoration: underline;
+    }
+
+    pre {
+        padding: 1em;
+        border-radius: var(--radius-small);
+    }
+
+    :not(pre) code {
+        padding: 0.2em 0.4em;
+        color: var(--color-background);
+        background-color: var(--color-foreground);
+        border-radius: var(--radius-small);
+    }
+}

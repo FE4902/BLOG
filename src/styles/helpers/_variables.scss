@@ -2,16 +2,21 @@
     // COLORS
     --color-primary: #ff6d34;
     --color-white: #fff;
-    --color-white-shadow: #{rgba(#fff, 0.25)};
+    --color-white-shadow: #{rgba(#fff, 0.05)};
     --color-light: #f5f5f5;
     --color-black: #000;
-    --color-black-shadow: #{rgba(#000, 0.25)};
+    --color-black-shadow: #{rgba(#000, 0.05)};
     --color-dark: #333;
 
     // FONT-WEIGHT
     --weight-light: 300;
     --weight-normal: 400;
     --weight-bold: 700;
+
+    // RADIUS
+    --radius-small: 0.25rem;
+    --radius-medium: 0.5rem;
+    --radius-circle: 50%;
 
     // WIDTH
     --width-container: 768px;
@@ -20,9 +25,11 @@
 html:not(.dark) {
     --color-background: var(--color-light);
     --color-foreground: var(--color-dark);
+    --color-shadow: var(--color-black-shadow);
 }
 
 html.dark {
     --color-background: var(--color-dark);
     --color-foreground: var(--color-light);
+    --color-shadow: var(--color-white-shadow);
 }

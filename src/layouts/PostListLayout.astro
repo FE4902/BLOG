@@ -17,7 +17,9 @@ const { pageTitle, posts, tag } = Astro.props;
     </ul>
 </BaseLayout>
 
-<style>
+<style lang="scss">
+    @use '@/styles/helpers' as *;
+    
     .tag {
         padding-top: 1rem;
     }
@@ -28,5 +30,9 @@ const { pageTitle, posts, tag } = Astro.props;
       padding-top: 1rem;
       gap: 1rem;
       list-style-type: none;
+
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
     }
 </style>

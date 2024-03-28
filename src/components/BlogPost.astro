@@ -3,20 +3,45 @@ const { title , url, pubDate, description } = Astro.props;
 ---
 
 <li class="post">
-    <a class="post__link" href={url}>
-        <div>{title}</div>
-        <div>{description}</div>
-        <div>{pubDate.slice(0, 10)}</div>
+    <a class="post__body" href={url}>
+        <figure class="post__figure"></figure>
+        <div class="post__title">{title}</div>
+        <div class="post__date">{pubDate.slice(0, 10)}</div>
+        <div class="post__desc">{description}</div>
     </a>
 </li>
 
-<style>
-    .post__link {
+<style lang="scss">
+    @use '@/styles/helpers' as *;
+
+    .post__body {
         display: block;
         width: 100%;
-        padding: 0.5rem;
-        border: 1px solid var(--color-foreground);
-        border-radius: 0.5rem;
-        aspect-ratio: 4 / 3;
+        padding: 1rem;
+        border-radius: var(--radius-medium);
+        background-color: var(--color-shadow);
+    }
+
+    .post__figure {
+        display: block;
+        background-color: var(--color-shadow);
+        border-radius: var(--radius-medium);
+        aspect-ratio: 2 / 1;
+    }
+
+    .post__title {
+        padding-top: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: var(--weight-bold);
+    }
+
+    // .post__date {
+    //     font-size: 0.875rem;
+    // }
+
+    .post__desc {
+        height: 3rem;
+        padding-top: 0.25rem;
+        @include ellipsis(2);
     }
 </style>
