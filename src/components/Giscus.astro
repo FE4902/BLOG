@@ -1,53 +1,59 @@
 ---
+
 ---
+
 <div id="giscus"></div>
 
 <script>
-  import { themeStore } from "@/store/store";
+    import { themeStore } from "@/store/store";
 
-  const script = document.createElement("script");
-  const container = document.querySelector("#giscus");
+    const script = document.createElement("script");
+    const container = document.querySelector("#giscus");
 
-function sendMessage(message) {
-        const iframe = document.querySelector('iframe.giscus-frame') as HTMLIFrameElement;
+    function sendMessage(message) {
+        const iframe = document.querySelector(
+            "iframe.giscus-frame"
+        ) as HTMLIFrameElement;
         if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-}
+        iframe.contentWindow.postMessage(
+            { giscus: message },
+            "https://giscus.app"
+        );
+    }
 
-themeStore.subscribe((value) => {
+    themeStore.subscribe((value) => {
         sendMessage({
-                setConfig: {
-                        theme: themeStore.value
-                }
+            setConfig: {
+                theme: themeStore.value,
+            },
         });
-})
+    });
 
-Object.entries({
-    src: "https://giscus.app/client.js",
-    "data-repo": "FE4902/Blog",
-    "data-repo-id": "R_kgDOKQpIuA",
-    "data-category": "Announcements",
-    "data-category-id": "DIC_kwDOKQpIuM4Cd5wU",
-    "data-mapping": "pathname",
-    "data-strict": "0",
-    "data-reactions-enabled": "1",
-    "data-emit-metadata": "0",
-    "data-input-position": "bottom",
-    "data-theme": themeStore.value,
-    "data-lang": "ko",
-    "data-loading": "lazy",
-    crossorigin: "anonymous",
-}).forEach(([key, value]) => {
-    script.setAttribute(key, value);
-});
-script.setAttribute("async", "true");
+    Object.entries({
+        src: "https://giscus.app/client.js",
+        "data-repo": "FE4902/Blog",
+        "data-repo-id": "R_kgDOKQpIuA",
+        "data-category": "Announcements",
+        "data-category-id": "DIC_kwDOKQpIuM4Cd5wU",
+        "data-mapping": "pathname",
+        "data-strict": "0",
+        "data-reactions-enabled": "1",
+        "data-emit-metadata": "0",
+        "data-input-position": "bottom",
+        "data-theme": themeStore.value,
+        "data-lang": "ko",
+        "data-loading": "lazy",
+        crossorigin: "anonymous",
+    }).forEach(([key, value]) => {
+        script.setAttribute(key, value);
+    });
+    script.setAttribute("async", "true");
 
-container?.appendChild(script);
+    container?.appendChild(script);
 </script>
 
 <style lang="scss">
-        #giscus {
-                padding-top: 4rem;
-        }
+    #giscus {
+        padding-top: 4rem;
+    }
 </style>
-

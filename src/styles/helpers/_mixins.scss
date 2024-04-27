@@ -6,7 +6,7 @@ $mobile: 640px;
     }
 }
 
-@mixin ellipsis($line: 1){
+@mixin ellipsis($line: 1) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

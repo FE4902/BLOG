@@ -1,8 +1,34 @@
 ---
+
 ---
+
 <button id="themeToggle">
-  <svg class="moon" xmlns="http://www.w3.org/2000/svg" fill="#ffd75e" viewBox="0 0 24 24"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6a9 9 0 0 0 9 9c.91 0 1.787-.134 2.614-.385A9.004 9.004 0 0 1 12 21 9 9 0 0 1 9.386 3.386 8.999 8.999 0 0 0 9 6Z"/></svg>
-  <svg class="sun" xmlns="http://www.w3.org/2000/svg" fill="#ffd75e" viewBox="0 0 24 24"><path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V2m0 18v2M6.414 6.414 5 5m12.728 12.728 1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728 5 19.142M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z"/></svg>
+    <svg
+        class="moon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#ffd75e"
+        viewBox="0 0 24 24"
+        ><path
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 6a9 9 0 0 0 9 9c.91 0 1.787-.134 2.614-.385A9.004 9.004 0 0 1 12 21 9 9 0 0 1 9.386 3.386 8.999 8.999 0 0 0 9 6Z"
+        ></path></svg
+    >
+    <svg
+        class="sun"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#ffd75e"
+        viewBox="0 0 24 24"
+        ><path
+            stroke="#000"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 4V2m0 18v2M6.414 6.414 5 5m12.728 12.728 1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728 5 19.142M12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z"
+        ></path></svg
+    >
 </button>
 
 <style lang="scss">
@@ -14,51 +40,53 @@
         background: none;
 
         svg {
-          position: absolute;
-          left: 0;
-          top: 0; 
-          width: 100%;
-          height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
         }
     }
 
     .sun {
-      visibility: visible;
-      opacity: 1;
-
-      :global(.dark) & {
-        visibility: hidden;
-        opacity: 0;
-      }
-    }
-    
-    .moon {
-      visibility: hidden;
-      opacity: 0;
-
-      :global(.dark) & {
         visibility: visible;
         opacity: 1;
-      }
+
+        :global(.dark) & {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    .moon {
+        visibility: hidden;
+        opacity: 0;
+
+        :global(.dark) & {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 </style>
 
 <script>
-    import { themeStore } from '../store/store.js';
-    
+    import { themeStore } from "../store/store.js";
+
     function handleToggleClick() {
-      themeStore.set(themeStore.value === 'dark' ? 'light' : 'dark');
+        themeStore.set(themeStore.value === "dark" ? "light" : "dark");
     }
 
     themeStore.subscribe((value) => {
-      if (value === 'dark') {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
+        if (value === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
 
-      localStorage.setItem("theme", value);
+        localStorage.setItem("theme", value);
     });
-  
-    document.getElementById("themeToggle").addEventListener("click", handleToggleClick);
+
+    document
+        .getElementById("themeToggle")
+        .addEventListener("click", handleToggleClick);
 </script>
